@@ -56,7 +56,7 @@ RPC_URL = os.environ.get("RPC_URL", "http://127.0.0.1:7545")
 CONTRACT_ADDRESS = os.environ.get("CONTRACT_ADDRESS")
 CONTRACT_ABI_PATH = os.environ.get(
     "CONTRACT_ABI_PATH",
-    str(Path(__file__).resolve().parent.parent / "contracts" / "ReputationManager.abi.json"),
+    str(Path(__file__).resolve().parent / "ReputationManager.abi.json"),
 )
 VALIDATOR_PRIVATE_KEY = os.environ.get("VALIDATOR_PRIVATE_KEY")  # optional, local test key only
 
