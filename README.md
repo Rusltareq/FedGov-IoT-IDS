@@ -19,12 +19,10 @@ If you use this code, please cite the relevant paper (see [Citation](#citation))
 
 ```
 .
-├── src/
-│   ├── federated_ids_training.py           # FedAvg / FedProx / FedDyn training + evaluation framework
-│   └── reputation_governance_simulation.py  # Replays per-client results against the on-chain governance contract
-├── contracts/
-│   ├── ReputationManager.sol                # The governance smart contract (Solidity ^0.8.19)
-│   └── ReputationManager.abi.json           # ABI used by reputation_governance_simulation.py
+├── federated_ids_training.py           # FedAvg / FedProx / FedDyn training + evaluation framework
+├── reputation_governance_simulation.py  # Replays per-client results against the on-chain governance contract
+├── ReputationManager.sol                # The governance smart contract (Solidity ^0.8.19)
+├── ReputationManager.abi.json           # ABI used by reputation_governance_simulation.py
 ├── requirements.txt
 └── LICENSE
 ```
@@ -52,7 +50,7 @@ A CUDA-capable GPU is recommended but not required (the code falls back to CPU a
 ## Running the federated training experiment
 
 ```bash
-python src/federated_ids_training.py \
+python federated_ids_training.py \
     --data-path data/CIC-ToN-IoT-V2.parquet \
     --output-dir outputs/fl_outputs_v2 \
     --rounds 80 \
@@ -73,7 +71,7 @@ Key configurable parameters (`FLConfig` in the script, or via CLI flags) include
 The governance mechanism is implemented as a Solidity smart contract and driven from Python via [web3.py](https://web3py.readthedocs.io/).
 
 1. **Start a local test blockchain**, e.g. [Ganache](https://trufflesuite.com/ganache/) (`http://127.0.0.1:7545` by default).
-2. **Deploy `contracts/ReputationManager.sol`** (e.g. via [Remix IDE](https://remix.ethereum.org/) connected to your local Ganache instance, or Hardhat/Truffle).
+2. **Deploy `ReputationManager.sol`** (e.g. via [Remix IDE](https://remix.ethereum.org/) connected to your local Ganache instance, or Hardhat/Truffle).
 3. **Set the deployed contract address** as an environment variable:
 
    ```bash
@@ -85,12 +83,12 @@ The governance mechanism is implemented as a Solidity smart contract and driven 
 
    ```bash
    pip install web3
-   python src/reputation_governance_simulation.py
+   python reputation_governance_simulation.py
    ```
 
 The script registers four example clients, then replays real per-client false-positive-rate (FPR) results — obtained from the federated training runs above — against the contract's `reportAlert()` function. Clients that repeatedly exceed the governance policy threshold (default 15% FPR, intentionally distinct from the 0.333 attack-decision threshold used for classification) are automatically isolated on-chain once their reputation score reaches zero.
 
-`contracts/ReputationManager.abi.json` matches the exact ABI used in the original experiments. If you extend the contract (e.g. adding `reportAlertBatch`), regenerate the ABI from your compiler output and update `CONTRACT_ABI_PATH` accordingly.
+`ReputationManager.abi.json` matches the exact ABI used in the original experiments. If you extend the contract (e.g. adding `reportAlertBatch`), regenerate the ABI from your compiler output and update `CONTRACT_ABI_PATH` accordingly.
 
 ## Security notes
 
