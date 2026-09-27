@@ -108,8 +108,8 @@ Released under the [MIT License](LICENSE) — you are free to use, modify, and r
   title     = {Blockchain-governed federated learning for IoT intrusion detection: training framework and ReputationManager smart contract},
   year      = {2026},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.22833145},
-  url       = {https://doi.org/10.5281/zenodo.22833145}
+  doi       = {10.5281/zenodo.22833144},
+  url       = {https://doi.org/10.5281/zenodo.22833144}
 }
 ```
 
