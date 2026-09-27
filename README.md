@@ -9,11 +9,11 @@ This repository contains the training/experiment code and the governance smart c
 
 ## Related publications
 
-- *FedTri-IDS* — submitted to *SN Computer Science*.
-- *FedGov_XAI: Active On-Chain Governance and Trustworthy Explainable AI for Federated Intrusion Detection in IoT Networks* — submitted to *The Journal of Supercomputing* (Springer).
-- *Client-Scale Generalization of Federated Aggregation in IoT Intrusion Detection: Accuracy, Stability, and Communication-Overhead Equivalence* — submitted to *Cluster Computing* (Springer).
+- *FedTri-IDS: A three-tier federated learning framework with drift-corrected aggregation for heterogeneous IoT intrusion detection* — under review.
+- *Live blockchain-governed, explainable federated learning for IoT intrusion detection* — under review.
+- *Client-scale generalization of federated aggregation in IoT intrusion detection: accuracy, stability, and communication-overhead equivalence* — under review.
 
-If you use this code, please cite the relevant paper (see [Citation](#citation)).
+If you use this code, please cite this software record (see [Citation](#citation)).
 
 ## Repository structure
 
@@ -103,25 +103,13 @@ Released under the [MIT License](LICENSE) — you are free to use, modify, and r
 ## Citation
 
 ```bibtex
-@article{khudhair_fedtri_ids,
-  author  = {Khudhair, Rusul Tareq and Goh, Chin Hock and Abu Bakar, Asmidar},
-  title   = {FedTri-IDS},
-  journal = {SN Computer Science},
-  note    = {Under review}
-}
-
-@article{khudhair_fedgov_xai,
-  author  = {Khudhair, Rusul Tareq and Goh, Chin Hock and Abu Bakar, Asmidar},
-  title   = {Active On-Chain Governance and Trustworthy Explainable AI for Federated Intrusion Detection in IoT Networks},
-  journal = {The Journal of Supercomputing},
-  note    = {Under review}
-}
-
-@article{khudhair_client_scale,
-  author  = {Khudhair, Rusul Tareq and Goh, Chin Hock and Abu Bakar, Asmidar},
-  title   = {Client-Scale Generalization of Federated Aggregation in IoT Intrusion Detection: Accuracy, Stability, and Communication-Overhead Equivalence},
-  journal = {Cluster Computing},
-  note    = {Under review}
+@software{khudhair_bcfl_ids_2026,
+  author    = {Khudhair, Rusul Tareq},
+  title     = {Blockchain-governed federated learning for IoT intrusion detection: training framework and ReputationManager smart contract},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.22833145},
+  url       = {https://doi.org/10.5281/zenodo.22833145}
 }
 ```
 
